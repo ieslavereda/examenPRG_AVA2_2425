@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -18,10 +20,14 @@ class Biblioteca {
         return catalogo.contains(publicacion);
     }
 
+    public boolean borrarPublicacion(Publicacion publicacion) {
+        return catalogo.remove(publicacion);
+    }
+
     @Override
     public String toString() {
-        String resultado="";
-        for (Publicacion publicacion:catalogo) {
+        String resultado = "";
+        for (Publicacion publicacion : catalogo) {
             resultado += publicacion;
         }
         return resultado;

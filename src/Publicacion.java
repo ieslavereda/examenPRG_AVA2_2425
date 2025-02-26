@@ -1,6 +1,4 @@
-import java.util.Objects;
-
-abstract class Publicacion implements Prestable{
+public abstract class Publicacion implements Prestable{
     private String titulo;
     private String autor;
     protected boolean disponible;

@@ -1,12 +1,17 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-public abstract class Libro extends Publicacion{
+public class Libro extends Publicacion{
     private Map<Ejemplar,Boolean> ejemplaresDisponibles;
 
     public Libro(String titulo, String autor) {
         super(titulo,autor);
         ejemplaresDisponibles = new TreeMap<>();
+    }
+
+    public Libro(String titulo, String autor, Map<Ejemplar,Boolean> ejemplaresDisponibles) {
+        super(titulo,autor);
+        this.ejemplaresDisponibles=ejemplaresDisponibles;
     }
 
     public Map<Ejemplar, Boolean> getEjemplaresDisponibles() {

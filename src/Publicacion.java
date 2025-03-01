@@ -1,6 +1,8 @@
+import java.util.Objects;
+
 public abstract class Publicacion implements Prestable{
-    private String titulo;
-    private String autor;
+    private final String titulo;
+    private final String autor;
     protected boolean disponible;
 
     public Publicacion(String titulo, String autor) {
@@ -18,23 +20,20 @@ public abstract class Publicacion implements Prestable{
     }
 
     @Override
-    public boolean prestar(){
+    public void prestar(){
         if(disponible)
             disponible=false;
-        return true;
     }
 
     @Override
-    public boolean devolver(){
+    public void devolver(){
         if(!disponible)
             disponible=true;
-        return true;
     }
 
     @Override
     public String toString() {
-        return "Publicacion{" +
-                "titulo='" + titulo + '\'' +
+        return "Título='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", disponible=" + disponible;
     }
@@ -44,12 +43,12 @@ public abstract class Publicacion implements Prestable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Publicacion that = (Publicacion) o;
-        return titulo.equals(that.titulo) && autor.equals(that.autor);
+        return Objects.equals(titulo, that.titulo) && Objects.equals(autor, that.autor);
     }
 
     @Override
     public int hashCode() {
-        return titulo.hashCode()+autor.hashCode();
+        return Objects.hash(titulo, autor);
     }
 }
 

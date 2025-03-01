@@ -1,22 +1,16 @@
 import java.util.Objects;
 
-public class Ejemplar extends Libro implements Comparable<Ejemplar>{
-    private int codigo;
-    private int anyoPublicacion;
+public class Ejemplar extends Libro implements Comparable<Ejemplar> {
+    private final int codigo;
     private static int secuencia;
 
-    public Ejemplar(String titulo, String autor, int codigo, int anyoPublicacion) {
-        super(titulo, autor);
-        this.codigo = codigo;
-        this.anyoPublicacion = anyoPublicacion;
+    public Ejemplar(String titulo, String autor, Genero genero) {
+        super(titulo, autor, genero);
+        this.codigo = secuencia++;
     }
 
     public int getCodigo() {
         return codigo;
-    }
-
-    public int getAnyoPublicacion() {
-        return anyoPublicacion;
     }
 
     @Override
@@ -34,8 +28,13 @@ public class Ejemplar extends Libro implements Comparable<Ejemplar>{
     }
 
     @Override
-    public int compareTo(Ejemplar ejemplar){
+    public int compareTo(Ejemplar ejemplar) {
         return ejemplar.codigo - this.codigo;
+    }
+
+    @Override
+    public String toString(){
+        return "ejemplar código: " + codigo;
     }
 
 

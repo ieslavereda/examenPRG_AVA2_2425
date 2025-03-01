@@ -1,4 +1,4 @@
 interface Prestable {
-    boolean prestar();
-    boolean devolver();
+    void prestar();
+    void devolver();
 }

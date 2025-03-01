@@ -1,23 +1,24 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 class Biblioteca {
-    private Set<Publicacion> catalogo;
+    private final List<Publicacion> catalogo;
 
     public Biblioteca() {
-        catalogo = new HashSet<>();
+        catalogo = new ArrayList<>();
+    }
+
+    public List<Publicacion> getCatalogo() {
+        return catalogo;
     }
 
     public void agregarPublicacion(Publicacion publicacion) {
         catalogo.add(publicacion);
     }
 
-    public boolean buscarPublicacion(Publicacion publicacion) {
-        return catalogo.contains(publicacion);
+    public Publicacion buscarPublicacion(Publicacion publicacion) {
+        if(catalogo.contains(publicacion))
+            return publicacion;
+        return null;
     }
 
     public boolean borrarPublicacion(Publicacion publicacion) {
@@ -28,7 +29,7 @@ class Biblioteca {
     public String toString() {
         String resultado = "";
         for (Publicacion publicacion : catalogo) {
-            resultado += publicacion;
+            resultado += publicacion + "\n";
         }
         return resultado;
     }

@@ -1,5 +1,5 @@
 public class Revista extends Publicacion {
-    private int numeroEdicion;
+    private final int numeroEdicion;
 
     public Revista(String titulo, String autor, int numeroEdicion) {
         super(titulo, autor);
@@ -12,7 +12,7 @@ public class Revista extends Publicacion {
 
     @Override
     public String toString() {
-        return super.toString() + " número de edición= " + numeroEdicion + " disponible? " + (disponible?"Sí":"No");
+        return super.toString() + " número de edición= " + numeroEdicion + " disponible? " + (disponible?"Sí ":"No ");
     }
 
 }

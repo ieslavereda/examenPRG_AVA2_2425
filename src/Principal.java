@@ -3,10 +3,12 @@ public class Principal {
         Biblioteca biblioteca = new Biblioteca();
         Revista nature1 = new Revista("Nature","cientificos",202411);
         Revista nature2 = new Revista("Nature","cientificos",202412);
-        Revista nature3 = new Revista("Nature","cientificos",202501);
+        Revista java = new Revista("Java","Editorial Vereda",202503);
+        Revista mariaDB = new Revista("MariaDB","Editorial Vereda",202501);
         biblioteca.agregarPublicacion(nature1);
         biblioteca.agregarPublicacion(nature2);
-        biblioteca.agregarPublicacion(nature3);
+        biblioteca.agregarPublicacion(java);
+        biblioteca.agregarPublicacion(mariaDB);
         biblioteca.buscarPublicacion(nature2).prestar();
         biblioteca.buscarPublicacion(nature2).devolver();
 
@@ -14,7 +16,7 @@ public class Principal {
         Libro montanyas = new Libro("En las montanyas de la locura", "H.P. Lovecraft", Genero.CIENCIA_FICCION,0);
         biblioteca.agregarPublicacion(maquinaTiempo);
         biblioteca.agregarPublicacion(montanyas);
-        biblioteca.catalogoOrdenado();
+        System.out.println(biblioteca.catalogoOrdenado());
         System.out.println(biblioteca);
 
         montanyas.agregarEjemplar();

@@ -1,6 +1,16 @@
+import java.util.Comparator;
 import java.util.Objects;
 
 public abstract class Publicacion implements Prestable, Comparable<Publicacion>{
+    public static final Comparator<Publicacion> POR_AUTOR = new Comparator<Publicacion>() {
+        @Override
+        public int compare(Publicacion publicacion1, Publicacion publicacion2) {
+            if(publicacion1.getAutor().equalsIgnoreCase(publicacion2.getAutor()))
+                return publicacion1.getTitulo().compareToIgnoreCase(publicacion2.getTitulo());
+            return publicacion1.getAutor().compareToIgnoreCase(publicacion2.getAutor());
+        }
+    };
+
     private final String titulo;
     private final String autor;
     protected boolean disponible;

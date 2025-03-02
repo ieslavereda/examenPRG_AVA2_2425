@@ -1,13 +1,13 @@
 import java.util.*;
 
 class Biblioteca {
-    private final List<Publicacion> catalogo;
+    private final Set<Publicacion> catalogo;
 
     public Biblioteca() {
-        catalogo = new ArrayList<>();
+        catalogo = new TreeSet<>();
     }
 
-    public List<Publicacion> getCatalogo() {
+    public Set<Publicacion> getCatalogo() {
         return catalogo;
     }
 
@@ -25,9 +25,10 @@ class Biblioteca {
         return catalogo.remove(publicacion);
     }
 
-    public List<Publicacion> catalogoOrdenado(){
-        Collections.sort(catalogo);
-        return catalogo;
+    public Collection<Publicacion> catalogoOrdenado(){
+        List<Publicacion> listaCatalogo = new ArrayList<>(catalogo);
+        listaCatalogo.sort(Publicacion.POR_AUTOR);
+        return listaCatalogo;
     }
 
     @Override

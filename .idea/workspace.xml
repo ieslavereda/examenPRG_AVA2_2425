@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f2d48059-8646-460f-92b9-feb93680a3d8" name="Changes" comment="20250302">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biblio1" beforeDir="false" afterPath="$PROJECT_DIR$/biblio1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Genero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biblio1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/biblio1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Biblioteca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Publicacion.java" afterDir="false" />
     </list>
@@ -112,7 +110,8 @@
       <workItem from="1740585237031" duration="4903000" />
       <workItem from="1740605263751" duration="2971000" />
       <workItem from="1740817454056" duration="9799000" />
-      <workItem from="1740901070879" duration="7157000" />
+      <workItem from="1740901070879" duration="7363000" />
+      <workItem from="1740918928381" duration="974000" />
     </task>
     <task id="LOCAL-00001" summary="20250302">
       <option name="closed" value="true" />
@@ -122,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740906817671</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20250302">
+      <option name="closed" value="true" />
+      <created>1740908575893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740908575893</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

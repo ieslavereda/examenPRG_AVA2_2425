@@ -16,7 +16,7 @@ class Biblioteca {
     }
 
     public Publicacion buscarPublicacion(Publicacion publicacion) {
-        if(catalogo.contains(publicacion))
+        if (catalogo.contains(publicacion))
             return publicacion;
         return null;
     }
@@ -25,9 +25,17 @@ class Biblioteca {
         return catalogo.remove(publicacion);
     }
 
-    public Collection<Publicacion> catalogoOrdenado(){
+    public Collection<Publicacion> catalogoOrdenado() {
         List<Publicacion> listaCatalogo = new ArrayList<>(catalogo);
         listaCatalogo.sort(Publicacion.POR_AUTOR);
+        return listaCatalogo;
+    }
+
+    public List<Publicacion> catalogoLibro() {
+        List<Publicacion> listaCatalogo = new ArrayList<>();
+        for (Publicacion publicacion : catalogo)
+            if (publicacion instanceof Libro)
+                listaCatalogo.add(publicacion);
         return listaCatalogo;
     }
 

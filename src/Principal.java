@@ -45,8 +45,9 @@ public class Principal {
         biblioteca2.borrarPublicacion(nature1);
         ((Libro)biblioteca2.buscarPublicacion(maquinaTiempo)).borrarEjemplar(0);
         System.out.println(maquinaTiempo.mostrarEjemplares());
-        biblioteca2.catalogoOrdenado();
+        System.out.println(biblioteca2.catalogoOrdenado());
         System.out.println(biblioteca2);
+        System.out.println(biblioteca2.catalogoLibro());
 
     }
 }

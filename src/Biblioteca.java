@@ -25,6 +25,11 @@ class Biblioteca {
         return catalogo.remove(publicacion);
     }
 
+    public List<Publicacion> catalogoOrdenado(){
+        Collections.sort(catalogo);
+        return catalogo;
+    }
+
     @Override
     public String toString() {
         String resultado = "";

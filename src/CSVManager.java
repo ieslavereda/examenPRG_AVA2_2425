@@ -11,8 +11,8 @@ public class CSVManager {
                     linea += ",";
                     Libro libro = (Libro) publicacion;
                     linea += ","+libro.getGenero();
-                    for (Ejemplar ejemplar:libro.getEjemplaresDisponibles().keySet())
-                        linea += ","+ejemplar.getCodigo();
+                    for (Integer ejemplar:libro.getEjemplaresDisponibles().keySet())
+                        linea += ","+ejemplar;
                 } else {
                     Revista revista = (Revista) publicacion;
                     linea += "," + revista.getNumeroEdicion();

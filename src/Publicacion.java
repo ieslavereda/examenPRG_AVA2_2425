@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public abstract class Publicacion implements Prestable{
+public abstract class Publicacion implements Prestable, Comparable<Publicacion>{
     private final String titulo;
     private final String autor;
     protected boolean disponible;
@@ -50,6 +50,13 @@ public abstract class Publicacion implements Prestable{
     public int hashCode() {
         return Objects.hash(titulo, autor);
     }
+
+    @Override
+    public int compareTo(Publicacion publicacion){
+        return publicacion.getTitulo().compareToIgnoreCase(titulo);
+    }
+
+
 }
 
 

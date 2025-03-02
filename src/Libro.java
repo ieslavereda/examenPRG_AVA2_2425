@@ -1,32 +1,25 @@
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Libro extends Publicacion {
-    private final Map<Ejemplar, Boolean> ejemplaresDisponibles;
+    private final Map<Integer, Boolean> ejemplaresDisponibles;
+    private static int secuencia;
     private final Genero genero;
-
-    public Libro(String titulo, String autor, Genero genero) {
-        super(titulo, autor);
-        this.genero = genero;
-        ejemplaresDisponibles = new TreeMap<>();
-        disponible = false;
-    }
 
     public Libro(String titulo, String autor, Genero genero, int ejemplares) {
         super(titulo, autor);
         this.genero = genero;
         ejemplaresDisponibles = new TreeMap<>();
         for (int i = 0; i < ejemplares; i++) {
-            ejemplaresDisponibles.put(new Ejemplar(titulo, autor, genero), true);
+            ejemplaresDisponibles.put(secuencia++, true);
         }
+        disponible = (ejemplares > 0);
     }
 
     public Genero getGenero() {
         return genero;
     }
 
-    public Map<Ejemplar, Boolean> getEjemplaresDisponibles() {
+    public Map<Integer, Boolean> getEjemplaresDisponibles() {
         return ejemplaresDisponibles;
     }
 
@@ -39,19 +32,19 @@ public class Libro extends Publicacion {
 
     @Override
     public void devolver() {
-        for (Ejemplar ejemplar : ejemplaresDisponibles.keySet()) {
-            devolverEjemplar(ejemplar.getCodigo());
+        for (Integer ejemplar : ejemplaresDisponibles.keySet()) {
+            devolverEjemplar(ejemplar);
         }
     }
 
     public int prestarEjemplar() {
         if (ejemplaresDisponibles.containsValue(true)) {
-            for (Ejemplar ejemplar : ejemplaresDisponibles.keySet()) {
+            for (Integer ejemplar : ejemplaresDisponibles.keySet()) {
                 if (ejemplaresDisponibles.get(ejemplar)) {
                     ejemplaresDisponibles.put(ejemplar, false);
                     if (!ejemplaresDisponibles.containsValue(true))
                         disponible = false;
-                    return ejemplar.getCodigo();
+                    return ejemplar;
                 }
             }
         }
@@ -59,8 +52,8 @@ public class Libro extends Publicacion {
     }
 
     public boolean devolverEjemplar(int codigo) {
-        for (Ejemplar ejemplar : ejemplaresDisponibles.keySet()) {
-            if (ejemplar.getCodigo() == codigo) {
+        for (Integer ejemplar : ejemplaresDisponibles.keySet()) {
+            if (ejemplar == codigo) {
                 ejemplaresDisponibles.put(ejemplar, true);
                 disponible = true;
                 return true;
@@ -70,13 +63,13 @@ public class Libro extends Publicacion {
     }
 
     public void agregarEjemplar() {
-        ejemplaresDisponibles.put(new Ejemplar(getTitulo(), getAutor(), getGenero()), true);
+        ejemplaresDisponibles.put(secuencia++, true);
         disponible = true;
     }
 
     public boolean borrarEjemplar(int codigo) {
-        for (Ejemplar ejemplar : ejemplaresDisponibles.keySet()) {
-            if (ejemplar.getCodigo() == codigo) {
+        for (Integer ejemplar : ejemplaresDisponibles.keySet()) {
+            if (ejemplar == codigo) {
                 ejemplaresDisponibles.remove(ejemplar);
                 if (!ejemplaresDisponibles.containsValue(true))
                     disponible = false;
@@ -86,13 +79,20 @@ public class Libro extends Publicacion {
         return false;
     }
 
-    public Set<Ejemplar> mostrarEjemplares() {
-        return ejemplaresDisponibles.keySet();
+    public List<Integer> mostrarEjemplares() {
+        List<Integer> lista = new ArrayList<>(ejemplaresDisponibles.keySet());
+        lista.sort(new Comparator<>() {
+            @Override
+            public int compare(Integer t1, Integer t2) {
+                return t2 - t1;
+            }
+        });
+        return lista;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " número de ejemplares= " + ejemplaresDisponibles.values().size();
+        return super.toString() + " género= " + genero + " número de ejemplares= " + ejemplaresDisponibles.values().size();
     }
 
 }

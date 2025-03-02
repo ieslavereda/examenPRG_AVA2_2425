@@ -1,7 +1,7 @@
 public enum Genero {
-    CIENCIA_FICCION("Ciencia Ficción", TipoGenero.FICCION),
-    DISTOPIA("Distopía", TipoGenero.FICCION),
-    TECNICOS("Técnico",TipoGenero.NO_FICCION),
+    CIENCIA_FICCION("Ciencia Ficcion", TipoGenero.FICCION),
+    DISTOPIA("Distopia", TipoGenero.FICCION),
+    TECNICOS("Tecnico",TipoGenero.NO_FICCION),
     DIVULGATIVOS("Divulgativo",TipoGenero.NO_FICCION)
     ;
 
@@ -15,6 +15,10 @@ public enum Genero {
 
     public String getGenero() {
         return genero;
+    }
+
+    public TipoGenero getTipoGenero() {
+        return tipoGenero;
     }
 
     public static Genero getGenerosCadena(String cadena) throws Exception{
@@ -33,7 +37,7 @@ public enum Genero {
 
     public enum TipoGenero{
         FICCION("Ficcion"),
-        NO_FICCION("No Ficción");
+        NO_FICCION("No Ficcion");
         private final String tipo;
         TipoGenero(String tipo){
             this.tipo=tipo;

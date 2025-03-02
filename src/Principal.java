@@ -1,17 +1,17 @@
 public class Principal {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
-        Revista nature1 = new Revista("Nature","científicos",202411);
-        Revista nature2 = new Revista("Nature","científicos",202412);
-        Revista nature3 = new Revista("Nature","científicos",202501);
+        Revista nature1 = new Revista("Nature","cientificos",202411);
+        Revista nature2 = new Revista("Nature","cientificos",202412);
+        Revista nature3 = new Revista("Nature","cientificos",202501);
         biblioteca.agregarPublicacion(nature1);
         biblioteca.agregarPublicacion(nature2);
         biblioteca.agregarPublicacion(nature3);
         biblioteca.buscarPublicacion(nature2).prestar();
         biblioteca.buscarPublicacion(nature2).devolver();
 
-        Libro maquinaTiempo = new Libro("La máquina del tiempo", "Herbert George Wells", Genero.CIENCIA_FICCION,5);
-        Libro montanyas = new Libro("En las montañas de la locura", "H.P. Lovecraft", Genero.CIENCIA_FICCION,0);
+        Libro maquinaTiempo = new Libro("La maquina del tiempo", "Herbert George Wells", Genero.CIENCIA_FICCION,5);
+        Libro montanyas = new Libro("En las montanyas de la locura", "H.P. Lovecraft", Genero.CIENCIA_FICCION,0);
         biblioteca.agregarPublicacion(maquinaTiempo);
         biblioteca.agregarPublicacion(montanyas);
         biblioteca.catalogoOrdenado();
@@ -33,13 +33,13 @@ public class Principal {
 
         System.out.println(biblioteca);
         biblioteca.agregarPublicacion(new Libro("Java para aprobar","IES La Vereda",Genero.TECNICOS,2));
-        biblioteca.agregarPublicacion(new Libro("El bolsón de higgs","Javier Santaolalla",Genero.DIVULGATIVOS,0));
+        biblioteca.agregarPublicacion(new Libro("El bolson de higgs","Javier Santaolalla",Genero.DIVULGATIVOS,0));
         biblioteca.agregarPublicacion(new Libro("1984","George Orwell",Genero.DISTOPIA,10));
 
-        CSVManager.guardarBibliotecaCSV("biblio1",biblioteca);
+        CSVManager.guardarBibliotecaCSV("biblio1.csv",biblioteca);
         System.out.println(biblioteca);
 
-        Biblioteca biblioteca2 = CSVManager.cargarBibliotecaCSV("biblio1");
+        Biblioteca biblioteca2 = CSVManager.cargarBibliotecaCSV("biblio1.csv");
         biblioteca2.borrarPublicacion(nature1);
         ((Libro)biblioteca2.buscarPublicacion(maquinaTiempo)).borrarEjemplar(0);
         System.out.println(maquinaTiempo.mostrarEjemplares());

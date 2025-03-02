@@ -8,7 +8,7 @@ public class Libro extends Publicacion {
     public Libro(String titulo, String autor, Genero genero, int ejemplares) {
         super(titulo, autor);
         this.genero = genero;
-        ejemplaresDisponibles = new TreeMap<>();
+        ejemplaresDisponibles = new HashMap<>();
         for (int i = 0; i < ejemplares; i++) {
             ejemplaresDisponibles.put(secuencia++, true);
         }

@@ -19,6 +19,10 @@ public abstract class Publicacion implements Prestable, Comparable<Publicacion>{
         return autor;
     }
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
     @Override
     public void prestar(){
         if(disponible)

@@ -5,17 +5,17 @@ public class CSVManager {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivo))){
             for (Publicacion publicacion : biblioteca.getCatalogo()) {
                 String linea = (publicacion instanceof Libro) ? "Libro" : "Revista";
-                linea += "," + publicacion.getTitulo();
-                linea += "," + publicacion.getAutor();
+                linea += ";" + publicacion.getTitulo();
+                linea += ";" + publicacion.getAutor();
                 if(publicacion instanceof Libro) {
-                    linea += ",";
+                    linea += ";";
                     Libro libro = (Libro) publicacion;
-                    linea += ","+libro.getGenero();
+                    linea += ";"+libro.getGenero();
                     for (Integer ejemplar:libro.getEjemplaresDisponibles().keySet())
-                        linea += ","+ejemplar;
+                        linea += ";"+ejemplar;
                 } else {
                     Revista revista = (Revista) publicacion;
-                    linea += "," + revista.getNumeroEdicion();
+                    linea += ";" + revista.getNumeroEdicion();
                 }
                 writer.write(linea);
                 writer.newLine();
@@ -30,7 +30,7 @@ public class CSVManager {
         try(BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))){
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(";");
                 String tipo = datos[0];
                 String titulo = datos[1];
                 String autor = datos[2];
